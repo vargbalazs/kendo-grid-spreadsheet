@@ -1,1 +1,57 @@
-/* You can add global styles to this file, and also import other style files */
+.k-grid-md .k-grid-edit-row td,
+.k-grid-md td,
+.k-grid-md .k-table-td,
+.k-grid-md .k-grid-edit-row .k-table-td {
+  padding: 0;
+}
+
+/* if we adjust the cell size, this should be evtl. changed too */
+.k-grid-ignore-click {
+  padding-block: 8px;
+  padding-inline: 12px;
+}
+
+/* adjust this padding, if we want smaller, larger cell sizes */
+.k-grid-edit-cell input.k-input {
+  padding-block: 5px;
+  padding-inline: 8px;
+}
+
+.k-grid-edit-cell {
+  box-shadow: inset 0 0 0 2px deepskyblue;
+}
+
+.k-grid-edit-cell .k-input-solid:focus-within {
+  box-shadow: none;
+  border-color: transparent;
+}
+
+.k-grid-edit-cell input.k-input.k-rounded-md {
+  border-radius: 0;
+}
+
+.k-grid td:focus,
+.k-grid td.k-focus,
+.k-grid .k-table-td:focus,
+.k-grid .k-table-td.k-focus,
+.k-grid .k-master-row > td:focus,
+.k-grid .k-master-row > td.k-focus,
+.k-grid .k-master-row > .k-table-td:focus,
+.k-grid .k-master-row > .k-table-td.k-focus {
+  box-shadow: inset 0 0 0 2px deepskyblue;
+}
+
+.k-grid .k-grid-edit-row td > input:not([type="checkbox"]):not([type="radio"]),
+.k-grid
+  .k-grid-edit-row
+  .k-table-td
+  > input:not([type="checkbox"]):not([type="radio"]) {
+  position: relative;
+  left: 3px;
+  width: 95%;
+}
+
+.k-grid td.k-selected.k-grid-edit-cell,
+.k-grid .k-table-td.k-selected.k-grid-edit-cell {
+  background-color: transparent;
+}
