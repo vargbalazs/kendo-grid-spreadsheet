@@ -1,40 +1,16 @@
-import {
-  OnInit,
-  Input,
-  OnDestroy,
-  Directive,
-  ElementRef,
-  Renderer2,
-} from '@angular/core';
+import { Input, Directive, HostListener } from '@angular/core';
 
 import { GridComponent } from '@progress/kendo-angular-grid';
 
 @Directive({
   selector: '[changeCellFocusWithTab]',
 })
-export class ChangeCellFocusWithTabDirective implements OnInit, OnDestroy {
+export class ChangeCellFocusWithTabDirective {
   @Input() wrap = true;
 
-  private unsubKeydown!: () => void;
+  constructor(private grid: GridComponent) {}
 
-  constructor(
-    private grid: GridComponent,
-    private el: ElementRef,
-    private renderer: Renderer2
-  ) {}
-
-  ngOnInit(): void {
-    this.unsubKeydown = this.renderer.listen(
-      this.el.nativeElement,
-      'keydown',
-      (e) => this.onKeydown(e)
-    );
-  }
-
-  ngOnDestroy(): void {
-    this.unsubKeydown();
-  }
-
+  @HostListener('keydown', ['$event'])
   onKeydown(e: KeyboardEvent): void {
     if (e.key !== 'Tab') {
       // Handle just tabs

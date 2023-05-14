@@ -1,4 +1,5 @@
 export class Row {
+  id?: number;
   accountNumber?: string;
   jan?: number;
   feb?: number;

@@ -5,9 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GridModule } from '@progress/kendo-angular-grid';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ChangeCellFocusWithTabDirective } from './tab.directive';
-import { InCellEditingDirective } from './in-cell-editing.directive';
-import { SelectingWithShiftDirective } from './selecting-with-shift.directive';
+import { ChangeCellFocusWithTabDirective } from './directives/tab.directive';
+import { InCellEditingDirective } from './directives/in-cell-editing.directive';
+import { SelectingWithShiftDirective } from './directives/selecting-with-shift.directive';
+import { SelectingWithMouseDirective } from './directives/selecting-with-mouse.directive';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { SelectingWithShiftDirective } from './selecting-with-shift.directive';
     ChangeCellFocusWithTabDirective,
     InCellEditingDirective,
     SelectingWithShiftDirective,
+    SelectingWithMouseDirective,
   ],
   imports: [
     BrowserModule,

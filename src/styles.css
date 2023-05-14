@@ -55,3 +55,7 @@
 .k-grid .k-table-td.k-selected.k-grid-edit-cell {
   background-color: transparent;
 }
+
+.k-table-td {
+  cursor: pointer;
+}

@@ -4,17 +4,16 @@
   [selectable]="selectableSettings"
   kendoGridSelectBy
   [(selectedKeys)]="selectedCells"
-  changeCellFocusWithTab
   [navigable]="true"
+  changeCellFocusWithTab
   inCellEditing
   [(selectedCells)]="selectedCells"
-  [(multipleSelectRowOffset)]="multipleSelectRowOffset"
-  [(multipleSelectColumnOffset)]="multipleSelectColumnOffset"
   [inCellEditingFormGroup]="createFormGroup"
-  [(gridData)]="rows"
   selectingWithShift
+  selectingWithMouse
   #grid
 >
+  <kendo-grid-column field="id" [hidden]="true"></kendo-grid-column>
   <kendo-grid-column field="accountNumber" [editable]="false">
     <ng-template kendoGridCellTemplate let-dataItem>
       <div class="k-grid-ignore-click">

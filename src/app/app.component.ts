@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
-import { rows } from './data';
-import { Row } from './row.model';
+import { rows } from './data/data';
+import { Row } from './model/row.model';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import {
   CellSelectionItem,
@@ -37,8 +37,6 @@ export class AppComponent {
     cell: true,
   };
   selectedCells: CellSelectionItem[] = [];
-  multipleSelectRowOffset = 1;
-  multipleSelectColumnOffset = 1;
 
   constructor(private formBuilder: FormBuilder) {
     this.createFormGroup = this.createFormGroup.bind(this);
