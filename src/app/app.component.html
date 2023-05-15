@@ -5,13 +5,13 @@
   kendoGridSelectBy
   [(selectedKeys)]="selectedCells"
   [navigable]="true"
-  [rowClass]="rowClass"
   changeCellFocusWithTab
   inCellEditing
   [(selectedCells)]="selectedCells"
   [inCellEditingFormGroup]="createFormGroup"
   selectingWithShift
   selectingWithMouse
+  gridColoring
   #grid
 >
   <kendo-grid-column field="id" [hidden]="true"></kendo-grid-column>

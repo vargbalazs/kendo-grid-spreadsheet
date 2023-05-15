@@ -6,10 +6,8 @@ import {
   CellSelectionItem,
   CreateFormGroupArgs,
   GridComponent,
-  RowClassArgs,
   SelectableSettings,
 } from '@progress/kendo-angular-grid';
-import { RowType } from './enums/row-type.enum';
 
 @Component({
   selector: 'app-root',
@@ -65,14 +63,4 @@ export class AppComponent {
   getGridData() {
     console.log(this.rows);
   }
-
-  rowClass = (args: RowClassArgs) => {
-    if ((<Row>args.dataItem).rowType === RowType.CALCULATED) {
-      return {
-        sum: true,
-      };
-    } else {
-      return {};
-    }
-  };
 }

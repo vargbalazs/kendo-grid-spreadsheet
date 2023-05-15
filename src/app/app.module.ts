@@ -9,6 +9,7 @@ import { ChangeCellFocusWithTabDirective } from './directives/tab.directive';
 import { InCellEditingDirective } from './directives/in-cell-editing.directive';
 import { SelectingWithShiftDirective } from './directives/selecting-with-shift.directive';
 import { SelectingWithMouseDirective } from './directives/selecting-with-mouse.directive';
+import { GridColoringDirective } from './directives/grid-coloring.directive';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { SelectingWithMouseDirective } from './directives/selecting-with-mouse.d
     InCellEditingDirective,
     SelectingWithShiftDirective,
     SelectingWithMouseDirective,
+    GridColoringDirective,
   ],
   imports: [
     BrowserModule,
