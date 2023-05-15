@@ -1,3 +1,4 @@
+import { RowType } from '../enums/row-type.enum';
 import { Row } from '../model/row.model';
 
 export const rows: Row[] = generateData();
@@ -7,6 +8,7 @@ function generateData(): Row[] {
   for (let i = 1; i <= 10; i++) {
     rows.push({
       id: i,
+      rowType: RowType.DATA,
       accountNumber: Math.round(Math.random() * 1000).toString(),
       jan: Math.round(Math.random() * 1000),
       feb: Math.round(Math.random() * 1000),
@@ -22,5 +24,10 @@ function generateData(): Row[] {
       dec: Math.round(Math.random() * 1000),
     });
   }
+  rows.splice(5, 0, {
+    id: 11,
+    rowType: RowType.CALCULATED,
+    accountNumber: 'sum',
+  });
   return rows;
 }
