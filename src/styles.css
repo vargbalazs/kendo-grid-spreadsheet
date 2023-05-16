@@ -13,11 +13,13 @@
 
 /* adjust this padding, if we want smaller, larger cell sizes */
 .k-grid-edit-cell input.k-input {
-  padding-block: 0px;
+  /* padding-block: 0px;
   margin-top: 2px;
   margin-left: 1px;
-  padding-inline: 8px;
+  padding-inline: 8px; */
   line-height: 1;
+  padding-block: 0px;
+  padding-inline: 11.5px;
 }
 
 .k-grid-edit-cell {
@@ -49,10 +51,13 @@
   .k-grid-edit-row
   .k-table-td
   > input:not([type="checkbox"]):not([type="radio"]) {
-  position: relative;
+  /* position: relative;
   left: 1px;
   width: 96%;
-  padding-left: 9px;
+  padding-left: 9px; */
+  position: relative;
+  right: 3px;
+  text-align: right;
 }
 
 .k-grid td.k-selected.k-grid-edit-cell,
@@ -75,17 +80,19 @@
 }
 
 .k-grid .k-table-row.calculated,
-.k-grid .k-table-tbody > .k-table-row:not(.k-detail-row).calculated:hover {
+.k-grid .k-table-tbody > .k-table-row:not(.k-detail-row).calculated:hover,
+.k-grid .k-table-row.calculated .editable-cell {
   background-color: #79ddff;
   color: #1b335a;
   font-weight: bold;
+  border: none !important;
 }
 
 .k-grid .k-grid-header {
   border-bottom: 1px solid #12355b;
 }
 
-/* .k-grid-header,
+.k-grid-header,
 .k-grid-header-wrap,
 .k-grouping-header,
 .k-grid .k-table-th,
@@ -100,7 +107,7 @@
 .k-filter-row > td,
 .k-filter-row > .k-table-td {
   border-color: transparent;
-} */
+}
 
 .k-table-thead,
 .k-table-thead .k-table-row {
@@ -112,4 +119,20 @@
 
 .k-table-md {
   line-height: 0.5;
+}
+
+.right-align {
+  text-align: right !important;
+}
+
+.editable-cell {
+  background-color: lightskyblue;
+  border: 1px solid white !important;
+}
+
+.k-grid td.k-selected,
+.k-grid .k-table-row.k-selected > td,
+.k-grid .k-table-td.k-selected,
+.k-grid .k-table-row.k-selected > .k-table-td {
+  background-color: rgba(255, 99, 88, 0.25) !important;
 }

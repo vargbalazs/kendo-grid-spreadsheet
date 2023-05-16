@@ -5,8 +5,11 @@ import {
   OnInit,
   Renderer2,
 } from '@angular/core';
-import { Row } from '../model/row.model';
-import { GridComponent, GridDataResult } from '@progress/kendo-angular-grid';
+import {
+  ColumnComponent,
+  GridComponent,
+  GridDataResult,
+} from '@progress/kendo-angular-grid';
 import { RowType } from '../enums/row-type.enum';
 
 @Directive({
@@ -19,9 +22,7 @@ export class GridColoringDirective implements OnInit, AfterViewInit {
     private grid: GridComponent
   ) {}
 
-  ngOnInit(): void {
-    //this.renderer.addClass(ariaRoot, 'test');
-  }
+  ngOnInit(): void {}
 
   ngAfterViewInit(): void {
     // get the row elements
@@ -46,6 +47,8 @@ export class GridColoringDirective implements OnInit, AfterViewInit {
     );
     const rows = tableTBody!.children;
 
+    // color the calculated rows
+
     // get the grid data and search for 'rowType' propperty and collect it's index, if it is a CALCULATED row type
     const gridData = (<GridDataResult>this.grid.data).data;
     const sumRowIndexes: number[] = [];
@@ -60,5 +63,26 @@ export class GridColoringDirective implements OnInit, AfterViewInit {
     sumRowIndexes.forEach((index) =>
       this.renderer.addClass(rows[index], 'calculated')
     );
+
+    // color the editable cells
+
+    // // get the editable column indexes
+    // const columns = <ColumnComponent[]>this.grid.columnList.toArray();
+    // const editableColumnIndexes: number[] = [];
+    // columns.forEach((col, index) => {
+    //   if (col.editable && !col.hidden) editableColumnIndexes.push(index);
+    // });
+
+    // // get the cells excluding calculated rows
+    // for (let i = 0; i < rows.length; i++) {
+    //   if (!rows[i].classList.contains('calculated')) {
+    //     const cells = rows[i].children;
+    //     // add a class to each cell, which is in an editable column
+    //     Array.from(cells).forEach((cell) => {
+    //       if (editableColumnIndexes.includes(+cell.ariaColIndex!))
+    //         this.renderer.addClass(cell, 'editable-cell');
+    //     });
+    //   }
+    // }
   }
 }
