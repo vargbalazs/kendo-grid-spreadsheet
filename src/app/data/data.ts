@@ -29,5 +29,11 @@ function generateData(): Row[] {
     rowType: RowType.CALCULATED,
     accountNumber: 'sum',
   });
+  rows.splice(8, 0, {
+    id: 12,
+    rowType: RowType.CALCULATED,
+    accountNumber: 'sum',
+  });
+
   return rows;
 }

@@ -80,7 +80,8 @@ export class SelectingWithMouseDirective {
           this.colIndex != this.lastSelectedCell.columnKey
         ) {
           this.markCellsAsSelected(this.lastSelectedCell);
-          this.updateState();
+          // update only, if we are in another cell
+          if (this.selectedCells.length >= 2) this.updateState();
           this.rowIndex = dataRowIndex;
           this.colIndex = columnIndex;
         }

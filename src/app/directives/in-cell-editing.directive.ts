@@ -17,6 +17,7 @@ import {
   GridDataResult,
 } from '@progress/kendo-angular-grid';
 import { Subscription } from 'rxjs';
+import { RowType } from '../enums/row-type.enum';
 
 @Directive({
   selector: '[inCellEditing]',
@@ -85,7 +86,8 @@ export class InCellEditingDirective implements OnInit, OnDestroy {
         this.columns[this.grid.activeCell.colIndex].field
       ) && // column is editable
       Number(e.key) && // only numbers
-      !this.grid.isEditingCell() // we are not in edit mode elsewhere in the grid
+      !this.grid.isEditingCell() && // we are not in edit mode elsewhere in the grid
+      !this.isRowCalculated(this.grid.activeCell.dataItem) // cell is not calculated
     ) {
       this.noFocusingWithArrowKeys = false;
       // get the column field name (key)
@@ -129,7 +131,10 @@ export class InCellEditingDirective implements OnInit, OnDestroy {
 
   @HostListener('dblclick', ['$event'])
   onDblClick() {
-    if (this.grid.activeCell.dataItem) {
+    if (
+      this.grid.activeCell.dataItem &&
+      !this.isRowCalculated(this.grid.activeCell.dataItem) // cell is not calculated
+    ) {
       this.noFocusingWithArrowKeys = true;
       // store the original values
       this.storeOriginalValues();
@@ -180,5 +185,12 @@ export class InCellEditingDirective implements OnInit, OnDestroy {
     const columns = <ColumnComponent[]>this.grid.columnList.toArray();
     const nonEditableColumns = columns.filter((c) => !c.editable);
     return nonEditableColumns.some((c) => c.field === fieldName);
+  }
+
+  isRowCalculated(dataItem: any) {
+    if (Object.hasOwn(dataItem, 'rowType')) {
+      return dataItem['rowType'] === RowType.CALCULATED;
+    }
+    return false;
   }
 }
